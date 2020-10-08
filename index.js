@@ -112,6 +112,14 @@ let bot = new Twit({
 //     }
 // })
 
+// bot.post('statuses/destroy/:id', {id:'1314025401174421500'}, function(err, data, response){
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log(`${data.text} was deleted`);
+//     }
+// })
+
 // bot.post('favorites/create', {id:'1314029435562209280'}, function(err, data, response){
 //     if(err){
 //         console.log(err)
