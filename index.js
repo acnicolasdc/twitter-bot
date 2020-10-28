@@ -1,5 +1,7 @@
 let Twit = require('twit');
 const Emitter = require('./emitter');
+const { SAVED } = require('./emitter-names');
+
 const { EventEmitter } = require('events');
 
 let bot = new Twit({
@@ -12,14 +14,14 @@ let bot = new Twit({
 
 const emitter = new EventEmitter();
 
-emitter.on('save', ()=>{
+emitter.on(SAVED, ()=>{
     console.log('Hello one')
 })
-emitter.on('save', ()=>{
+emitter.on(SAVED, ()=>{
     console.log('Hello second')
 })
 
-emitter.emit('save')
+emitter.emit(SAVED)
 // bot.post('statuses/update', {
 //     status:'Testing my bot from nodeJS service'
 // }, function(err, data, response){
