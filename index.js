@@ -1,4 +1,6 @@
 let Twit = require('twit');
+const Emitter = require('./emitter');
+const { EventEmitter } = require('events');
 
 let bot = new Twit({
     consumer_key: 'SZxVCpCCUJemJoEtN6T4u1oOh',
@@ -8,7 +10,16 @@ let bot = new Twit({
     timeout_ms: 60*1000
 });
 
+const emitter = new EventEmitter();
 
+emitter.on('save', ()=>{
+    console.log('Hello one')
+})
+emitter.on('save', ()=>{
+    console.log('Hello second')
+})
+
+emitter.emit('save')
 // bot.post('statuses/update', {
 //     status:'Testing my bot from nodeJS service'
 // }, function(err, data, response){
