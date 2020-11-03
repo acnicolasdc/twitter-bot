@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/acnicolasdc/twitter-bot#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "twit": "^2.2.11"
   }
 }
