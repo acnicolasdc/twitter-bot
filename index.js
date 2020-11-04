@@ -1,16 +1,13 @@
 const express = require("express");
-const fs = require('fs');
-const html = fs.readFileSync('./index.html');
-const about = fs.readFileSync('./about.html');
-const PORT  = 8080;
+const { environment: { PORT } } = require("./config")
+const { HomeRoutes } = require("./routes")
 const server = express();
 
+//Using middleware to make a private folder to public
+server.use(express.static('./public'));
+//Using middleware to parse request to JSON
+server.use(express.json());
+//Using routes
+server.use("/", HomeRoutes);
 
-server.get('/', (req, res)=>{
-    res.write(html);
-})
-
-server.get('/about', (req, res)=>{
-    res.write(about);
-})
 server.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
